@@ -1,6 +1,11 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 export const GifGrid = ({category}) => {
+     const [count, setCount] = useState(0)
+     useEffect (()=>{
+        getGif();
+     },[])
+
     const getGif= async()=>{
         const url='http://api.giphy.com/v1/gifs/search?api_key=LXqBNAQHqGTnKKVxoMGDK1cajqVkOVjn&q=goku&limit=10'
         const resp = await fetch( url );
@@ -14,11 +19,12 @@ export const GifGrid = ({category}) => {
         })
         console.log(data);
     }
-     getGif();
+     
 
     return (
         <div>
             <h3> { category }</h3>
+            <button></button>
         </div>
     )
 }
